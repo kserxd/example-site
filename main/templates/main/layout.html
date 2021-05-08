@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+        integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+
+<body>
+    <aside>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'main/img/logo.png' %}" alt='logo'>
+        </a>
+        <span class="logo">
+            CoDe
+        </span>
+        <h3>
+            Навигация
+        </h3>
+        <ul>
+            <a href="{% url 'home' %}">
+                <li>
+                    <i class="fas fa-home"></i>
+                    Главная
+                </li>
+            </a>
+            <a href="{% url 'about' %}">
+                <li>
+                    <i class="fas fa-question-circle"></i> 
+                    О нас
+                </li>
+            </a>
+            <a href="{% url 'news_home' %}">
+                <li>
+                    <i class="far fa-newspaper"></i>
+                    Новости
+                </li>
+            </a>
+            <a href="{% url 'contact' %}">
+                <li>
+                    <i class="fab fa-telegram-plane"></i> 
+                    Контакты
+                </li>
+            </a>
+            <a href="{% url 'create_news' %}">
+                <li>
+                    <button class="btn btn-info">
+                        <i class="fos fo-plus-circle">
+                            Добавить новость
+                        </i>
+                    </button>
+                </li>
+            </a>
+        </ul>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+
+</html>
